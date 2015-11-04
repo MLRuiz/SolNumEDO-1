@@ -1,0 +1,16 @@
+function [y,x]=AB3(a,b,n,f,y0)
+%AB3 versión epsilón
+x=linspace(a,b,n); %Estas son las equises
+h=x(2)-x(1); %Tamaño de paso
+y=y0(:); %Inicializa
+
+opcion=optimset('Display','off');
+
+ytemp=gaussy(a,a+2*h,3,f,y0);
+y(:,2:3)=ytemp(:,2:3); %Aquí incluímos el valor de la inicialización con Gauss-Legendre
+
+for i=4:n
+y(:,i)=y(:,i-1)+h*(23*f(x(i-1),y(:,i-1))/12-4*f(x(i-2),y(:,i-2))/3+...
+5*f(x(i-3),y(:,i-3))/12); %AB3
+end
+end
