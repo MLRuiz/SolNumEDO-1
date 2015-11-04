@@ -1,6 +1,6 @@
 function [y,x]=AB2(a,b,n,f,y0)
 %AB2 versión epsilón
-%metodo de Adams-Bashfor
+%metodo de Adams-Bashford
 %Recibe a,b extremos del intervalo
 %n particiones
 %F funcion
