@@ -1,5 +1,5 @@
 function [x,y]=Trap(a,b,n,f,y0)
-%Trapecios vectorial
+%Trapecios normal
 
 x = linspace(a,b,n);
 h = x(2) - x(1);
