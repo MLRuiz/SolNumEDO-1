@@ -1,0 +1,9 @@
+function [ norma ] = errorA(y,h)
+%  Norma 2 en malla
+norma=0;
+
+for i=1:length(y)
+    norma = norma+y(i)^2*h;
+end
+
+norma=sqrt(norma);
