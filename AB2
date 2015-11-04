@@ -1,6 +1,10 @@
 function [y,x]=AB2(a,b,n,f,y0)
 %AB2 versión epsilón
 %metodo de Adams-Bashfor
+%Recibe a,b extremos del intervalo
+%n particiones
+%F funcion
+%y0 condicion inicial
 
 x=linspace(a,b,n); %Estas son las equises
 h=x(2)-x(1); %Tamaño de paso
