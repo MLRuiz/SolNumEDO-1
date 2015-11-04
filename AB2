@@ -1,5 +1,7 @@
 function [y,x]=AB2(a,b,n,f,y0)
 %AB2 versión epsilón
+%metodo de Adams-Bashfor
+
 x=linspace(a,b,n); %Estas son las equises
 h=x(2)-x(1); %Tamaño de paso
 y=y0(:); %Inicializa
