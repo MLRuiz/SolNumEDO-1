@@ -1,0 +1,22 @@
+function [y,x]=gaussy(a,b,n,f,y0)
+%Gauss-Legendre orden 4 versión epsilón
+x=linspace(a,b,n); %Estas son las equises
+h=x(2)-x(1); %Tamaño de paso
+y=y0(:); %Inicializa
+
+opcion=optimset('Display','off');
+
+c=[1/2-sqrt(3)/6;1/2+sqrt(3)/6];
+b=[1/2;1/2];
+A=[1/4,1/4-sqrt(3)/6;1/4+sqrt(3)/6,1/4];
+
+for i=2:n
+xtemp=x(i-1);ytemp=y(:,i-1);
+
+F=@(z) h*A*[f(xtemp+c(1)*h,z(1));f(xtemp+c(2)*h,z(2))]...
++ytemp*ones(2,1)-z;
+Z=fsolve(F,ytemp*ones(2,1),opcion);
+y(:,i)=ytemp+h*(b(1)*f(xtemp+c(1)*h,Z(1))+...
+b (2)*f(xtemp+c(2)*h,Z(2)));
+end
+end
