@@ -1,0 +1,14 @@
+function [x,y]=eulerf(a,b,n,f,y0)
+%Euler hacia adelante versión epsilón
+
+x=linspace(a,b,n); %Estas son las equises
+
+h=x(2)-x(1); %Tamaño de paso
+
+y=y0(:); %Inicializa
+
+for i=2:n
+    y(:,i)=y(:,i-1)+h*f(x(i-1),y(:,i-1)); %Euler hacia adelante
+end
+
+end
