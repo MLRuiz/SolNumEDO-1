@@ -1,0 +1,15 @@
+function [y,x]=eulerb2(a,b,n,f,y0)
+%Euler hacia atrás versión vectorial
+
+x=linspace(a,b,n); %Estas son las equises
+
+h=x(2)-x(1); %Tamaño de paso
+
+y=y0(:); %Inicializa
+
+for i=2:n
+    xtemp=x(i);
+    ytemp=y(:,i-1);
+    F=@(z) h*f(xtemp,z)+ytemp-z;
+    y(:,i)=fsolve(F,ytemp); %Euler hacia atrás
+end
