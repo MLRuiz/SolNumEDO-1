@@ -1,0 +1,14 @@
+function [x,y]=Trap(a,b,n,f,y0)
+%Trapecios vectorial
+
+x = linspace(a,b,n);
+h = x(2) - x(1);
+y = y0;
+
+for i=2:n
+    xt = x(i);
+    xt2 = x(i-1);
+    yt = y(i-1);
+    F = @(z) yt + (h/2)*(f(xt2,yt) + f(xt,z)) - z;
+    y(i) = fzero(F,yt);
+end
